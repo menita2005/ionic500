@@ -12,9 +12,18 @@ import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent 
 export class FolderPage implements OnInit {
   public folder!: string;
   private activatedRoute = inject(ActivatedRoute);
+
+public arrayItem: string[] = [];
+
   constructor() {}
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
+  }
+
+  probar(nombre: string, edad: number): string {
+
+    return "valor de salida del metodo";
+
   }
 }
