@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Usuario</ion-title>
+  </ion-toolbar>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</ion-header>
+
+<ion-content [fullscreen]="true" style="display: flex; width: 100%;">
+
+  <h1 >TITULO</h1>
+  <div class="form-container">
+      <!-- Avatar centrado arriba -->
+      <img
+        src="https://media.istockphoto.com/id/1171169099/es/foto/hombre-con-brazos-cruzados-aislados-sobre-fondo-gris.jpg?s=612x612&w=0&k=20&c=8qDLKdLMm2i8DHXY6crX6a5omVh2IxqrOxJV2QGzgFg="
+        alt="Avatar"
+        class="avatar-img mx-auto d-block">
+
+      <!-- Formulario -->
+      <form class="mt-4 text-start">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="{{nameUser}}">
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="{{email}}">
+        </div>
+
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Número de Teléfono</label>
+          <input type="text" class="form-control" id="telefono" name="numeroTelefono" placeholder="{{numberPhone}}">
+        </div>
+
+      </form>
+    </div>
+  
+
+
+
+  
+</ion-content>
