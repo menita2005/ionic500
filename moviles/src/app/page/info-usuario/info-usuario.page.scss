@@ -1,0 +1,17 @@
+.container-main{
+  width: 50%;
+  height: 50%;                 /* Aumentamos el espacio entre los elementos */
+  background: #fff;              /* Fondo blanco para el formulario */
+  border-radius: 16px;           /* Bordes suavizados con un radio de 16px */
+  padding: 30px;                 /* Espacio interno alrededor del formulario */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Sombra sutil para dar profundidad */
+  max-width: 500px;              /* Máximo ancho para mantener el formulario centrado */
+  margin: 20px auto;             /* Centra el formulario horizontalmente */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+ion-item{
+    margin-bottom: 10px;
+}
