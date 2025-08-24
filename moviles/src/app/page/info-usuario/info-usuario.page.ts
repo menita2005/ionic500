@@ -1,38 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonInput, IonLabel, IonItem } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonInput, IonLabel, IonItem, IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-info-usuario',
   templateUrl: './info-usuario.page.html',
   styleUrls: ['./info-usuario.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonInput, IonLabel, IonItem]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonInput, IonLabel, IonItem, IonIcon]
 })
 export class InfoUsuarioPage implements OnInit {
 
-  titulo: string = "CARLITOS";
-  public mostrarTexto: boolean;
-  srcImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkDQ0jxlWcR0fsaeIb0ovOZ6WLAbZ48a--oQ&s";
+  public nombre: string = "Angel";
+  public apellido: string = "Acuna";
+  public ciudad: string = "Barranquilla";
+  public fechaNacimiento: string = "23/11/2004";
+  public celular: string = "3010200044"
+  public correoElectronico: string = "angel@gmail.com"
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  public setOpenButton: boolean;
-
-  abrirTexto() {
-    this.mostrarTexto = true;
-  }
-
-  cerrarTexto() {
-    this.mostrarTexto = false;
-  }
-
-  prueba() {
-    return 20;
   }
 
 }

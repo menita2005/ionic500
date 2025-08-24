@@ -1,17 +1,53 @@
-.container-main{
-  width: 50%;
-  height: 50%;                 /* Aumentamos el espacio entre los elementos */
-  background: #fff;              /* Fondo blanco para el formulario */
-  border-radius: 16px;           /* Bordes suavizados con un radio de 16px */
-  padding: 30px;                 /* Espacio interno alrededor del formulario */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Sombra sutil para dar profundidad */
-  max-width: 500px;              /* Máximo ancho para mantener el formulario centrado */
-  margin: 20px auto;             /* Centra el formulario horizontalmente */
+.container-main {
+  width: 85%;
+  background: #1960da;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 }
 
-ion-item{
-    margin-bottom: 10px;
+.perfil-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.perfil {
+  border-radius: 100%;
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border: 3px solid white;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.campo label.text {
+  font-size: 1rem;
+  color: white; 
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.campo input.input {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid #cce4ff;
+  border-radius: 8px;
+  background: white;
+  color: white;
+  color: black;
 }
