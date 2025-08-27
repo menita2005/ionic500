@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-folder',
+  selector: 'app-folder', 
   templateUrl: './folder.page.html',
   standalone: true,
   styleUrls: ['./folder.page.scss'],
@@ -16,5 +16,9 @@ export class FolderPage implements OnInit {
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
+  }
+  probar(variableUno: string, variableDos: number):any{
+    return 12;
+
   }
 }

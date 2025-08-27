@@ -11,7 +11,7 @@
   <div class="form-container">
       <!-- Avatar centrado arriba -->
       <img
-        src="https://media.istockphoto.com/id/1171169099/es/foto/hombre-con-brazos-cruzados-aislados-sobre-fondo-gris.jpg?s=612x612&w=0&k=20&c=8qDLKdLMm2i8DHXY6crX6a5omVh2IxqrOxJV2QGzgFg="
+        src="{{srcImagenUser}}"
         alt="Avatar"
         class="avatar-img mx-auto d-block">
 
@@ -19,18 +19,25 @@
       <form class="mt-4 text-start">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="{{nameUser}}">
+          <input type="text" disabled="true" class="form-control" id="nombre" name="nombre" placeholder="{{nameUser}}">
         </div>
 
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="{{email}}">
+          <input type="email" disabled="true" class="form-control" id="email" name="email" placeholder="{{email}}">
         </div>
 
         <div class="mb-3">
           <label for="telefono" class="form-label">Número de Teléfono</label>
-          <input type="text" class="form-control" id="telefono" name="numeroTelefono" placeholder="{{numberPhone}}">
+          <input type="text" disabled="true" class="form-control" id="telefono" name="numeroTelefono" placeholder="{{numberPhone}}">
         </div>
+        <ion-button (click)="prueba()" >Preciona</ion-button>
+
+
+        <!-- <ion-input [disabled]="true" [(ngModel)]="dato">Input</ion-input> -->
+
+        <ion-button (click)="desactivar()">{{estado}}</ion-button>
+        <ion-button (click)="imprimir()">imprimir</ion-button>
 
       </form>
     </div>
