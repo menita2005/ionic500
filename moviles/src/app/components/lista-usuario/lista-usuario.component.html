@@ -1,0 +1,14 @@
+<br>
+<div *ngFor="let objetos of listaObjetos" class="card">
+
+  <img [src]="objetos.image" alt="Camiseta deportiva" class="card-image" />
+
+  <div class="card-content">
+    <h2 class="card-title">{{objetos.title}}</h2>
+    <p class="card-description">
+      {{objetos.description}}
+    </p>
+    <p class="card-category">{{objetos.category}}</p>
+    <p class="card-price">${{objetos.price}}</p>
+  </div>
+</div>
