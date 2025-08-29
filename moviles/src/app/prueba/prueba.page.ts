@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonInput } from '@ionic/angular/standalone';
+import { ListaUsuarioComponent } from '../components/lista-usuario/lista-usuario.component';
 
 @Component({
   selector: 'app-prueba',
   templateUrl: './prueba.page.html',
   styleUrls: ['./prueba.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonInput]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonInput, ListaUsuarioComponent]
 })
 export class PruebaPage implements OnInit {
 

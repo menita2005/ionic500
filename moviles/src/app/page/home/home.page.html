@@ -11,6 +11,47 @@
     </ion-toolbar>
 
   </ion-header>
+  
+  <div class="container-main">
 
-  <app-lista-usuario></app-lista-usuario>
+    <div class="perfil-container">
+      <img [src]="logo" alt="Perfil" class="perfil" />
+    </div>
+
+    <h4 class="nombreAplicacion">{{ nombreAplicacion }}</h4>
+
+    <form>
+      <div class="campo">
+        <label for="input" class="text">Usuario:</label>
+        <input type="text" [(ngModel)]="usuario" placeholder="Ingresa tu Usuario......" name="input" class="input">
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Direccion de entrega:</label>
+        <input type="text" [(ngModel)]="direccion" placeholder="Ingresa tu direccion de entrega......" name="input" class="input">
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Pais:</label>
+        <input type="text" [(ngModel)]="pais" placeholder="Ingresa tu pais......" name="input" class="input">
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Ciudad:</label>
+        <input type="text" [(ngModel)]="ciudad" placeholder="Ingresa tu ciudad......" name="input" class="input">
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Idioma:</label>
+        <input type="text" [(ngModel)]="idioma" placeholder="Ingresa el idioma......" name="input" class="input">
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Moneda:</label>
+        <input type="text" [(ngModel)]="moneda" placeholder="Ingresa la moneda......" name="input" class="input">
+      </div>
+
+      <ion-button (click)="confirmarCompra()" class="botonSubmit" color="light" fill="solid" expand="block">Confirmar compra</ion-button>
+    </form>
+  </div>
 </ion-content>
