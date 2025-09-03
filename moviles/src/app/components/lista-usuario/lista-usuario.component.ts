@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Producto } from 'src/data/interfaces/producto.model';
 
 @Component({
   selector: 'app-lista-usuario',
@@ -10,11 +11,13 @@ import { CommonModule } from '@angular/common';
 })
 export class ListaUsuarioComponent implements OnInit {
 
+  producto: Producto;
+
   constructor() { }
 
   ngOnInit() { }
 
-  listaObjetos = [
+  listaObjetos: Producto[] = [
     {
       id: 0,
       title: "MASCOTA",

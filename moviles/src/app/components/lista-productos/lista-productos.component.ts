@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonButton } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
+import { Producto } from 'src/data/interfaces/producto.model';
 
 @Component({
   selector: 'app-lista-productos',
@@ -13,6 +14,8 @@ export class ListaProductosComponent implements OnInit {
 
   activo: boolean = false;
   listaProductos: String[] = ["Jabon", "Mueble", "Historico"];
+
+  producto: Producto;
 
   //10 OBJETOS Y QUE TENGA IMAGEN
 
@@ -36,7 +39,20 @@ export class ListaProductosComponent implements OnInit {
   ngOnInit() { }
 
   cambiarValor() {
+    
+    //let productoNuevo: Producto = new Producto(2, "Play5", 6000);
+    //this.producto = new Producto(1, "Carlitos", 12000);
+
+    /*
+    this.producto = {
+      id: 1,
+      nombre: "Camisa",
+      precio: 19000
+    }
+      */
+
     this.activo = !this.activo;
+
   }
 
 }
