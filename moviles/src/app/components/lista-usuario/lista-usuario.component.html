@@ -1,5 +1,5 @@
 <br>
-<div *ngFor="let objetos of listaObjetos" class="card">
+<div *ngFor="let objetos of listaObjetosPadre" class="card">
 
   <img [src]="objetos.image" alt="Camiseta deportiva" class="card-image" />
 
@@ -11,4 +11,8 @@
     <p class="card-category">{{objetos.category}}</p>
     <p class="card-price">${{objetos.price}}</p>
   </div>
+</div>
+
+<div>
+  <h1>{{listaObjetosPadre}}</h1>
 </div>
