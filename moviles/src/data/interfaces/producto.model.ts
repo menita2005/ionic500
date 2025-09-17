@@ -1,6 +1,8 @@
 export interface Producto{
     id: number,
-    title: string,
+
+    //Con el "?" permite que sea nulo
+    title?: string,
     price: number,
     description: string,
     category: string,

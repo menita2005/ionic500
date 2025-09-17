@@ -1,13 +1,15 @@
-<div *ngFor="let objetos of listaProducto" class="card">
+<div class="card-container">
+  <div *ngFor="let objetos of listaProducto" class="card">
 
-  <img [src]="objetos.image" alt="Camiseta deportiva" class="card-image" />
+    <img [src]="objetos.image" alt="Camiseta deportiva" class="card-image" />
 
-  <div class="card-content">
-    <h2 class="card-title">{{objetos.title}}</h2>
-    <p class="card-description">
-      {{objetos.description}}
-    </p>
-    <p class="card-category">{{objetos.category}}</p>
-    <p class="card-price">${{objetos.price}}</p>
+    <div class="card-content">
+      <h2 class="card-title">{{objetos.title}}</h2>
+      <p class="card-description">
+        {{objetos.description}}
+      </p>
+      <p class="card-category">{{objetos.category}}</p>
+      <p class="card-price">${{objetos.price}}</p>
+    </div>
   </div>
 </div>
