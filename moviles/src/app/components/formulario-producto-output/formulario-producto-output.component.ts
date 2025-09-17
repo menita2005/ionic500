@@ -15,7 +15,7 @@ export class FormularioProductoOutputComponent implements OnInit {
 
   @Output() producto = new EventEmitter<Producto>
 
-  logo: string = "https://img.freepik.com/vector-premium/diseno-logotipo-vectorial-iconos-entrega-concepto-creativo-unico-premium-vector_561067-1562.jpg?semt=ais_hybrid&w=740&q=80";
+  logo: string = "https://static.vecteezy.com/system/resources/previews/006/307/399/non_2x/new-product-9-logo-design-template-illustration-suitable-for-product-label-free-vector.jpg";
   nombreAplicacion: string = "Productos";
 
   id: number;
