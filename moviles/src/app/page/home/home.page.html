@@ -13,7 +13,7 @@
    <div class="perfil-container">
       <img [src]="logo" alt="Perfil" class="perfil" />
     </div>
-
+<!-- 
     <h4 class="nombreAplicacion">{{ nombreAplicacion }}</h4>
 <div class="container-main">
     <form>
@@ -48,10 +48,11 @@
       </div>
 
       <ion-button (click)="confirmarCompra()" class="botonSubmit" color="light" fill="solid" expand="block">Confirmar compra</ion-button>
-    </form>
-</div>
+    </form> -->
+<!-- </div> -->
 <!-- <app-info-usuario></app-info-usuario> -->
-<app-lista-productos-component [variableEntradaPadre]="variableEnviadaAHijo"></app-lista-productos-component>
+ <app-output (producto)="cargarProducto($event)"></app-output>
+<app-lista-productos-component  [variableEntradaPadre]="listaObjetos"></app-lista-productos-component>
 
 
 </ion-content>

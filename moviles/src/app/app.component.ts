@@ -17,6 +17,7 @@ export class AppComponent {
   public appPages = [
     { title: 'Usuario', url: '/usuario', icon: 'airplane' },
     { title: 'home', url: '/home', icon: 'airplane' },
+    { title: 'Producto', url: '/productos', icon: 'box' },
     // { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
     // { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
     // { title: 'Archived', url: '/folder/archived', icon: 'archive' },
