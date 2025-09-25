@@ -18,6 +18,15 @@
   <!-- home dentro de page -->
   <div class="container-main">
 
+    <h4>Router LINK</h4>
+    <ion-button [routerLink]="['/home']">Direccionar page a otro</ion-button>
+    <ion-button [routerLink]="['/home', 2]">Direccionar page a otro con parametros</ion-button>
+
+    <h4>Router NAVIGATE</h4>
+    <ion-button (click)="irAHome()">Direccionar page a otro</ion-button>
+    <ion-button (click)="irAHomeParametros()">Direccionar page a otro con parametros</ion-button>
+    <ion-button (click)="irAHomeQuery()">Direccionar page a otro con querys</ion-button>
+
     <div class="perfil-container">
       <img src="assets/perfil/perritos.jpg" alt="Perfil" class="perfil" />
     </div>
