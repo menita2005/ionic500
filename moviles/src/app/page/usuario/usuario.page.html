@@ -32,14 +32,17 @@
           <input type="text" disabled="true" class="form-control" id="telefono" name="numeroTelefono" placeholder="{{numberPhone}}">
         </div>
         <ion-button (click)="prueba()" >Preciona</ion-button>
+        <ion-button (click)="guardarServicio()" >Guardar en Servicio</ion-button>
 
 
         <!-- <ion-input [disabled]="true" [(ngModel)]="dato">Input</ion-input> -->
-
+       
         <ion-button (click)="desactivar()">{{estado}}</ion-button>
         <ion-button (click)="imprimir()">imprimir</ion-button>
-
+        <!-- <ion-input [(ngModel)]="dato"></ion-input> -->
+        <ion-input [(ngModel)]="dato" name="first"></ion-input>
       </form>
+      
     </div>
   
 

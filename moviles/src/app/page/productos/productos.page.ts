@@ -16,11 +16,11 @@ import { OutputComponent } from 'src/app/components/output/output.component';
 export class ProductosPage implements OnInit {
 
   constructor() { }
-listaObjetos :Producto[] = []
+Producto :Producto[] = []
   ngOnInit() {
   }
-  cargarProducto(listaProductos){
-    this.listaObjetos.push(listaProductos);
+  GuardarProducto(producto){
+    this.Producto.push(producto);
   }
 
 }

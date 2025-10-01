@@ -1,4 +1,4 @@
-import { Component, OnInit, output } from '@angular/core';
+import { Component, OnInit,inject, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { InfoUsuarioComponent } from 'src/app/components/info-usuario/info-usuario.component';
@@ -6,6 +6,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar,IonButton } from '@ionic/an
 import { ListaProductosComponentComponent } from 'src/app/components/lista-productos-component/lista-productos-component.component';
 import { Producto } from 'src/app/data/interface/producto.model';
 import { OutputComponent } from 'src/app/components/output/output.component';
+import { ProductoService } from 'src/app/data/service/producto-service';
 
 
 
@@ -33,12 +34,16 @@ export class HomePage implements OnInit {
   variableEntradaPadre:string = "titulo 1";
   variableEnviadaTres:string = " titulo 2 ";
   
-  
-  listaObjetos :Producto[] = []
+  productoService = inject(ProductoService)
+
+  datoObtenido:string = ""
+ 
   ngOnInit() {
+      this.datoObtenido = this.productoService.datoGuardado
   }
-  cargarProducto(listaProductos){
-    this.listaObjetos.push(listaProductos);
+
+  cargarProducto(listaProducto){
+    this.listaObjetos.push(listaProducto);
   }
 confirmarCompra() {
     console.log(`Usuario: ${this.usuario}, Dirección: ${this.direccion}, País: ${this.pais}, Ciudad: ${this.ciudad}, Idioma: ${this.idioma}, Moneda: ${this.moneda}`);
