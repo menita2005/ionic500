@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonInput, IonLabel, IonItem, IonIcon } from '@ionic/angular/standalone';
+import { ProductoService } from 'src/data/service/producto-service';
 
 @Component({
   selector: 'app-info-usuario',
@@ -19,12 +20,19 @@ export class InfoUsuarioPage implements OnInit {
   public fechaNacimiento: string = "23/11/2004";
   public celular: string = "3010200044"
   public correoElectronico: string = "angel@gmail.com"
+  public dato: string;
 
   private router = inject(Router)
+  productoService = inject(ProductoService)
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  guardarServicio(){
+    this.productoService.guardarDato(this.dato)
+    this.router.navigate(['/home']);
   }
 
   irAHome(){

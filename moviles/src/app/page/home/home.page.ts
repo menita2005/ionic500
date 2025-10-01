@@ -6,6 +6,7 @@ import { FormularioProductoOutputComponent } from 'src/app/components/formulario
 import { ListaProductosInputComponent } from 'src/app/components/lista-productos-input/lista-productos-input.component';
 import { Producto } from 'src/data/interfaces/producto.model';
 import { ActivatedRoute } from '@angular/router';
+import { ProductoService } from 'src/data/service/producto-service';
 
 @Component({
   selector: 'app-home',
@@ -19,12 +20,15 @@ export class HomePage implements OnInit {
   producto: Producto[] = []
 
   private activatedRoute = inject(ActivatedRoute)
+  productoService = inject(ProductoService)
+  datoObtenido: string = ""
 
   constructor() { }
 
   ngOnInit() {
      let id = this.activatedRoute.snapshot.paramMap.get("id")
      console.log(id)
+     this.datoObtenido = this.productoService.datoGuardado
   }
 
   registrar(producto: Producto){
