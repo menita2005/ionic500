@@ -21,14 +21,12 @@ export class HomePage implements OnInit {
 
   private activatedRoute = inject(ActivatedRoute)
   productoService = inject(ProductoService)
-  datoObtenido: string = ""
 
   constructor() { }
 
   ngOnInit() {
      let id = this.activatedRoute.snapshot.paramMap.get("id")
      console.log(id)
-     this.datoObtenido = this.productoService.datoGuardado
   }
 
   registrar(producto: Producto){

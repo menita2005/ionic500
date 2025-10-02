@@ -1,117 +1,112 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-import { ListaUsuarioComponent } from 'src/app/components/lista-usuario/lista-usuario.component';
-import { ListaObjetosComponent } from 'src/app/components/lista-objetos/lista-objetos.component';
 import { Producto } from 'src/data/interfaces/producto.model';
+import { ProductoService } from 'src/data/service/producto-service';
+import { ListaProductosInputComponent } from 'src/app/components/lista-productos-input/lista-productos-input.component';
 
 @Component({
   selector: 'app-maestros-productos',
   templateUrl: './maestros-productos.page.html',
   styleUrls: ['./maestros-productos.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ListaUsuarioComponent, ListaObjetosComponent]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ListaProductosInputComponent]
 })
 export class MaestrosProductosPage implements OnInit {
 
-  listaObjetos: Producto[] = [
-    {
-      id: 0,
-      title: "MASCOTA",
-      price: 2.000,
-      description: "NARIZO",
-      category: "PERRO",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3TNggTjCUytn1yLNknj3ksp6Y_hyFzPtJ-Q&s"
-    },
+  productoService = inject(ProductoService)
+
+  listaVacia: Producto[] = [];
+
+  listaProductos: Producto[] = [
     {
       id: 1,
-      title: "Camiseta deportiva",
-      price: 15.99,
-      description: "Camiseta cómoda y transpirable para deportes.",
-      category: "Ropa",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH2i0d0iunUzKiCrzDWdt2B4LlVhrOO-UGuQ&s"
+      title: 'Smartphone X100',
+      price: 699.99,
+      description: 'Un smartphone de alta gama con pantalla AMOLED de 6.5 pulgadas.',
+      category: 'Electronics',
+      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     },
     {
       id: 2,
-      title: "Auriculares inalámbricos",
-      price: 45.5,
-      description: "Auriculares Bluetooth con cancelación de ruido.",
-      category: "Electrónica",
-      image: "https://cdn.wamiz.fr/cdn-cgi/image/format=auto,quality=80,width=1200,height=675,fit=cover/animal/breed/dog/adult/670e6126a454f140554717.jpg"
+      title: 'Laptop ProBook 15',
+      price: 999.99,
+      description: 'Laptop profesional con procesador Intel Core i7 y 16 GB de RAM.',
+      category: 'Computers',
+      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     },
     {
       id: 3,
-      title: "Libro de cocina",
-      price: 12.0,
-      description: "Recetas fáciles para principiantes.",
-      category: "Libros",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIVmMUO8owROeuKfUo8uYVi18taSGkRDc3Qw&s"
+      title: 'Auriculares Bluetooth ZV',
+      price: 129.99,
+      description: 'Auriculares inalámbricos con cancelación de ruido y 20 horas de batería.',
+      category: 'Accessories',
+      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     },
     {
       id: 4,
-      title: "Silla de oficina",
-      price: 89.99,
-      description: "Silla ergonómica con soporte lumbar ajustable.",
-      category: "Muebles",
-      image: "https://www.zooplus.es/magazine/wp-content/uploads/2023/05/Borzoi.webp"
+      title: 'Cámara Digital DSLR',
+      price: 549.99,
+      description: 'Cámara profesional DSLR con lente de 18-55 mm, ideal para fotografía.',
+      category: 'Electronics',
+      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     },
     {
       id: 5,
-      title: "Smartwatch",
-      price: 120.25,
-      description: "Reloj inteligente con monitor de ritmo cardíaco.",
-      category: "Electrónica",
-      image: ""
+      title: 'Smartwatch 3000',
+      price: 249.99,
+      description: 'Reloj inteligente con monitor de frecuencia cardíaca y GPS.',
+      category: 'Accessories',
+      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     },
     {
       id: 6,
-      title: "Zapatillas deportivas",
-      price: 65.0,
-      description: "Zapatillas cómodas para correr y entrenar.",
-      category: "Calzado",
-      image: ""
+      title: 'Micrófono Condensador',
+      price: 89.99,
+      description: 'Micrófono de alta calidad para grabación profesional y streaming.',
+      category: 'Electronics',
+      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     },
     {
       id: 7,
-      title: "Mochila de viaje",
-      price: 39.99,
-      description: "Mochila resistente al agua con múltiples compartimentos.",
-      category: "Accesorios",
-      image: ""
+      title: 'Teclado Mecánico RGB',
+      price: 69.99,
+      description: 'Teclado mecánico con retroiluminación RGB y switches de alta respuesta.',
+      category: 'Computers',
+      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     },
     {
       id: 8,
-      title: "Lámpara de escritorio",
-      price: 22.75,
-      description: "Lámpara LED con intensidad regulable.",
-      category: "Electrónica",
-      image: ""
+      title: 'Monitor UltraWide 34"',
+      price: 379.99,
+      description: 'Pantalla curva UltraWide 34 pulgadas para multitareas y gaming.',
+      category: 'Computers',
+      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     },
     {
       id: 9,
-      title: "Set de pinceles",
-      price: 18.5,
-      description: "Juego de pinceles para pintura acrílica y óleo.",
-      category: "Arte",
-      image: ""
+      title: 'Parlantes Bluetooth',
+      price: 79.99,
+      description: 'Parlantes inalámbricos con sonido estéreo y 12 horas de duración.',
+      category: 'Accessories',
+      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     },
     {
       id: 10,
-      title: "Botella térmica",
-      price: 14.99,
-      description: "Botella para bebidas calientes o frías, 500ml.",
-      category: "Accesorios",
-      image: ""
+      title: 'Pantalla LED 55"',
+      price: 499.99,
+      description: 'Televisor LED de 55 pulgadas con resolución 4K y sonido envolvente.',
+      category: 'Electronics',
+      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     }
   ];
-  
-  variableEnviadaDos: string = "Titulo dos";
-  variableEnviadaTres: string = "Titulo tres";
 
   constructor() { }
 
   ngOnInit() {
+      this.listaVacia = this.productoService.obtenerDato();
+      this.productoService.guardarDato(this.listaProductos)
   }
 
 }

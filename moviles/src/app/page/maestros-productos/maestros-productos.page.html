@@ -1,3 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>maestros-productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
-  <app-lista-usuario [listaObjetosPadre]="listaObjetos" ></app-lista-usuario>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">maestros-productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-lista-productos-input [listaProducto]="listaVacia"></app-lista-productos-input>
+
 </ion-content>

@@ -1,8 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonLabel, IonItem, IonList, IonAvatar } from '@ionic/angular/standalone';
 import { Producto } from 'src/data/interfaces/producto.model';
+import { ProductoService } from 'src/data/service/producto-service';
 
 @Component({
   selector: 'app-formulario-producto-output',
@@ -12,6 +13,8 @@ import { Producto } from 'src/data/interfaces/producto.model';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonLabel, IonItem, IonList, IonAvatar]
 })
 export class FormularioProductoOutputComponent implements OnInit {
+
+  productoService = inject(ProductoService)
 
   @Output() producto = new EventEmitter<Producto>
 
@@ -43,6 +46,8 @@ export class FormularioProductoOutputComponent implements OnInit {
     };
 
     this.producto.emit(this.prod);
+
+    this.productoService.guardarDato(this.prod)
   }
 
 }
