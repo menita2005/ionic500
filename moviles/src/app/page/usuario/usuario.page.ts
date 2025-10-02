@@ -39,9 +39,6 @@ export class UsuarioPage implements OnInit {
 
   ngOnInit() {
   }
-  guardarServicio(){
-      this.productoService.datoGuardado = this.dato;
-      this.router.navigate(['/home'])
-  }
+
 
 }

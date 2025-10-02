@@ -34,12 +34,13 @@ export class HomePage implements OnInit {
   variableEntradaPadre:string = "titulo 1";
   variableEnviadaTres:string = " titulo 2 ";
   
-  productoService = inject(ProductoService)
+  productoService = inject(ProductoService);  // si quieres usar `inject`
 
-  datoObtenido:string = ""
- 
+  listaObjetos: Producto[] = [];
+
   ngOnInit() {
-      this.datoObtenido = this.productoService.datoGuardado
+    this.listaObjetos = this.productoService.obtenerProductos();
+    
   }
 
   cargarProducto(listaProducto){

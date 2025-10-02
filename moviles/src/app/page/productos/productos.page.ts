@@ -5,22 +5,29 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 import { ListaProductosComponentComponent } from 'src/app/components/lista-productos-component/lista-productos-component.component';
 import { Producto } from 'src/app/data/interface/producto.model';
 import { OutputComponent } from 'src/app/components/output/output.component';
+import { ProductoService } from 'src/app/data/service/producto-service';
 
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.page.html',
   styleUrls: ['./productos.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,ListaProductosComponentComponent,OutputComponent]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ListaProductosComponentComponent, OutputComponent]
 })
 export class ProductosPage implements OnInit {
 
-  constructor() { }
-Producto :Producto[] = []
+  listaObjetos: Producto[] = [];
+
+  constructor(private productoService: ProductoService) {}
+
   ngOnInit() {
-  }
-  GuardarProducto(producto){
-    this.Producto.push(producto);
+    
+    this.listaObjetos = this.productoService.obtenerProductos();
   }
 
+  GuardarProducto(producto: Producto) {
+  this.productoService.GuardarDato(producto);
+  this.listaObjetos = [...this.productoService.obtenerProductos()];
 }
+  }
+

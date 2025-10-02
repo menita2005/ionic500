@@ -14,7 +14,7 @@ import { Producto } from 'src/app/data/interface/producto.model';
 })
 export class OutputComponent  implements OnInit {
 
-  @Output() producto = new EventEmitter<Producto>
+  @Output() producto = new EventEmitter<Producto>()
   id:number
   title:String
   price:number
@@ -24,17 +24,19 @@ export class OutputComponent  implements OnInit {
 
   nuevoProducto: Producto ;
 
-  crear(){
-    this.nuevoProducto = {
-      id: this.id,
-      title: this.title,
-      price: this.price,
-      description: this.description,
-      category: this.category,
-      image: this.image
-    };  
-    this.producto.emit(this.nuevoProducto);
-  }
+crear() {
+  this.nuevoProducto = {
+    id: Number(this.id),
+    title: this.title,
+    price: Number(this.price),
+    description: this.description,
+    category: this.category,
+    image: this.image
+  };  
+  console.log("Creando producto:", this.nuevoProducto);
+  this.producto.emit(this.nuevoProducto);
+}
+
   constructor() { }
 
   ngOnInit() {}
