@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
 
   registrar(producto: Producto){
     alert("Producto creado con exito")
-    this.producto.push(producto)
+    this.productoService.guardarDato(producto)
   }
 
 }

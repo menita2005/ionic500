@@ -46,8 +46,6 @@ export class FormularioProductoOutputComponent implements OnInit {
     };
 
     this.producto.emit(this.prod);
-
-    this.productoService.guardarDato(this.prod)
   }
 
 }

@@ -17,9 +17,9 @@ export class MaestrosProductosPage implements OnInit {
 
   productoService = inject(ProductoService)
 
-  listaVacia: Producto[] = [];
+  listaSinProductos: Producto[] = [];
 
-  listaProductos: Producto[] = [
+  listaConProductos: Producto[] = [
     {
       id: 1,
       title: 'Smartphone X100',
@@ -43,70 +43,14 @@ export class MaestrosProductosPage implements OnInit {
       description: 'Auriculares inalámbricos con cancelación de ruido y 20 horas de batería.',
       category: 'Accessories',
       image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
-    },
-    {
-      id: 4,
-      title: 'Cámara Digital DSLR',
-      price: 549.99,
-      description: 'Cámara profesional DSLR con lente de 18-55 mm, ideal para fotografía.',
-      category: 'Electronics',
-      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
-    },
-    {
-      id: 5,
-      title: 'Smartwatch 3000',
-      price: 249.99,
-      description: 'Reloj inteligente con monitor de frecuencia cardíaca y GPS.',
-      category: 'Accessories',
-      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
-    },
-    {
-      id: 6,
-      title: 'Micrófono Condensador',
-      price: 89.99,
-      description: 'Micrófono de alta calidad para grabación profesional y streaming.',
-      category: 'Electronics',
-      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
-    },
-    {
-      id: 7,
-      title: 'Teclado Mecánico RGB',
-      price: 69.99,
-      description: 'Teclado mecánico con retroiluminación RGB y switches de alta respuesta.',
-      category: 'Computers',
-      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
-    },
-    {
-      id: 8,
-      title: 'Monitor UltraWide 34"',
-      price: 379.99,
-      description: 'Pantalla curva UltraWide 34 pulgadas para multitareas y gaming.',
-      category: 'Computers',
-      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
-    },
-    {
-      id: 9,
-      title: 'Parlantes Bluetooth',
-      price: 79.99,
-      description: 'Parlantes inalámbricos con sonido estéreo y 12 horas de duración.',
-      category: 'Accessories',
-      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
-    },
-    {
-      id: 10,
-      title: 'Pantalla LED 55"',
-      price: 499.99,
-      description: 'Televisor LED de 55 pulgadas con resolución 4K y sonido envolvente.',
-      category: 'Electronics',
-      image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
     }
   ];
 
   constructor() { }
 
   ngOnInit() {
-      this.listaVacia = this.productoService.obtenerDato();
-      this.productoService.guardarDato(this.listaProductos)
+    this.listaSinProductos = this.productoService.obtenerDato();
+
   }
 
 }
