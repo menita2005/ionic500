@@ -22,7 +22,11 @@ export const routes: Routes = [
   {
     path: 'maestros-productos',
     loadComponent: () => import('./page/maestros-productos/maestros-productos.page').then( m => m.MaestrosProductosPage)
+  },  {
+    path: 'crear-producto',
+    loadComponent: () => import('./page/crear-producto/crear-producto.page').then( m => m.CrearProductoPage)
   },
+
 
 
 

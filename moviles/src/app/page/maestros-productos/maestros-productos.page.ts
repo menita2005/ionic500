@@ -50,7 +50,6 @@ export class MaestrosProductosPage implements OnInit {
 
   ngOnInit() {
     this.listaSinProductos = this.productoService.obtenerDato();
-
   }
 
 }
