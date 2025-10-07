@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Producto } from 'src/app/data/interface/producto.model';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
-    listaObjetos: Producto[] = [
+  listaObjetos: Producto[] = [
     {
       id: 1,
       title: 'Laptop Lenovo',
@@ -22,7 +23,9 @@ export class ProductoService {
       image: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Samsung_Galaxy_S21_Ultra.png'
     }
   ];
-   
+
+  carrito: Producto[] = [];
+
   GuardarDato(producto: Producto) {
     this.listaObjetos.push(producto);
   }
@@ -30,5 +33,16 @@ export class ProductoService {
   obtenerProductos(): Producto[] {
     return this.listaObjetos;
   }
-}
 
+  agregarAlCarrito(producto: Producto) {
+    this.carrito.push(producto);
+  }
+
+  obtenerCarrito(): Producto[] {
+    return this.carrito;
+  }
+
+  eliminarDelCarrito(id: number) {
+    this.carrito = this.carrito.filter(p => p.id !== id);
+  }
+}
