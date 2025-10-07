@@ -28,9 +28,9 @@ export class ProductoService {
 
   }
 
-  eliminarDelCarrito(producto){
+  eliminarDelCarrito(indexProducto){
 
-    this.listaProductoCarrito.filter(producto)
+    this.listaProductoCarrito.splice(indexProducto, 1);
 
   }
 }

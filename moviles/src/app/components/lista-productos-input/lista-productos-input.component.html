@@ -1,5 +1,5 @@
 <div class="card-container">
-  <div *ngFor="let producto of listaProducto" class="card">
+  <div *ngFor="let producto of listaProducto; let i = index" class="card">
 
     <img [src]="producto.image" alt="Camiseta deportiva" class="card-image" />
 
@@ -12,12 +12,12 @@
       <p class="card-price">${{producto.price}}</p>
     </div>
 
-    <div *ngIf="!producto.carrito">
+    <div *ngIf="!pageCarrito">
       <button class="btn-add-cart" (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
     </div>
 
-    <div *ngIf="producto.carrito">
-      <button class="btn-add-cart-disabled" (click)="eliminarDelCarrito(producto)">Agregar al carrito</button>
+    <div *ngIf="pageCarrito">
+      <button class="btn-remove-cart" (click)="eliminarDelCarrito(i)">Eliminar del carrito</button>
     </div>
   </div>
 </div>

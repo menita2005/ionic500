@@ -88,3 +88,17 @@
   opacity: 1; 
   text-align: center;
 }
+
+.btn-remove-cart {
+  width: 100%;
+  padding: 10px 15px;
+  background: linear-gradient(90deg, #ce1029e1, #ff0000);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 123, 255, 0.3);
+}

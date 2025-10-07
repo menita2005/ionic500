@@ -7,7 +7,4 @@ export interface Producto {
     description: string,
     category: string,
     image: string,
-
-    //Con el "?" permite que sea nulo
-    carrito?: boolean,
 }

@@ -13,17 +13,18 @@ import { ProductoService } from 'src/data/service/producto-service';
 export class ListaProductosInputComponent  implements OnInit {
 
   @Input() listaProducto: Producto[];
+  @Input() pageCarrito: boolean = false;
+
   productoService = inject(ProductoService)
 
   agregarAlCarrito(producto: Producto){
     alert("Producto agregado al carrito");
-    producto.carrito = true;
     this.productoService.agregarAlCarrito(producto)
   }
 
-  eliminarDelCarrito(producto: Producto){
-    alert("Producto agregado al carrito");
-    this.productoService.eliminarDelCarrito(producto)
+  eliminarDelCarrito(index){
+    alert("Producto eliminado del carrito");
+    this.productoService.eliminarDelCarrito(index);
   }
 
   constructor() { }
