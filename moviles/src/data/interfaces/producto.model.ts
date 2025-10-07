@@ -1,4 +1,4 @@
-export interface Producto{
+export interface Producto {
     id: number,
 
     //Con el "?" permite que sea nulo
@@ -7,4 +7,7 @@ export interface Producto{
     description: string,
     category: string,
     image: string,
+
+    //Con el "?" permite que sea nulo
+    carrito?: boolean,
 }

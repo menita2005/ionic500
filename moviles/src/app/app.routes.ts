@@ -26,6 +26,10 @@ export const routes: Routes = [
     path: 'crear-producto',
     loadComponent: () => import('./page/crear-producto/crear-producto.page').then( m => m.CrearProductoPage)
   },
+  {
+    path: 'carrito',
+    loadComponent: () => import('./page/carrito/carrito.page').then( m => m.CarritoPage)
+  },
 
 
 

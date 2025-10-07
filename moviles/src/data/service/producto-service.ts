@@ -7,6 +7,8 @@ import { Producto } from '../interfaces/producto.model';
 export class ProductoService {
 
   listaProducto: Producto[] = []
+  listaProductoCarrito: Producto[] = []
+  lista = []
 
   obtenerDato(){
     return this.listaProducto
@@ -14,5 +16,21 @@ export class ProductoService {
 
   guardarDato(producto){
     this.listaProducto.push(producto)
+  }
+
+  obtenerProductosCarrito(){
+    return this.listaProductoCarrito
+  }
+
+  agregarAlCarrito(producto){
+    
+    this.listaProductoCarrito.push(producto)
+
+  }
+
+  eliminarDelCarrito(producto){
+
+    this.listaProductoCarrito.filter(producto)
+
   }
 }

@@ -18,6 +18,7 @@ export class AppComponent {
     //{ title: 'Home', url: '/home', icon: 'person' },
     { title: 'Maestros Productos', url: '/maestros-productos', icon: 'person' },
     { title: 'Crear productos', url: '/crear-producto', icon: 'person' },
+    { title: 'Carritos', url: '/carrito', icon: 'person' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {
