@@ -5,41 +5,26 @@ import { Producto } from 'src/app/data/interface/producto.model';
   providedIn: 'root'
 })
 export class ProductoService {
-  listaObjetos: Producto[] = [
-    {
-      id: 1,
-      title: 'Laptop Lenovo',
-      price: 2500,
-      description: 'Laptop de alto rendimiento para trabajo y estudio',
-      category: 'Electrónica',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Lenovo_ThinkPad_T14s.jpg'
-    },
-    {
-      id: 2,
-      title: 'Smartphone Samsung',
-      price: 1800,
-      description: 'Teléfono inteligente con pantalla AMOLED',
-      category: 'Electrónica',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Samsung_Galaxy_S21_Ultra.png'
-    }
-  ];
 
-  carrito: Producto[] = [];
+  private listaCreados: Producto[] = [];
+  private carrito: Producto[] = [];
 
-  GuardarDato(producto: Producto) {
-    this.listaObjetos.push(producto);
+  // 🔹 Productos creados
+  obtenerCreados() {
+    return this.listaCreados;
   }
 
-  obtenerProductos(): Producto[] {
-    return this.listaObjetos;
+  guardarProductoNuevo(producto: Producto) {
+    this.listaCreados.push(producto);
+  }
+
+  // 🔹 Carrito
+  obtenerCarrito() {
+    return this.carrito;
   }
 
   agregarAlCarrito(producto: Producto) {
     this.carrito.push(producto);
-  }
-
-  obtenerCarrito(): Producto[] {
-    return this.carrito;
   }
 
   eliminarDelCarrito(id: number) {

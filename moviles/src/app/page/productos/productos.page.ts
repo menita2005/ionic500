@@ -22,12 +22,12 @@ export class ProductosPage implements OnInit {
 
   ngOnInit() {
     
-    this.listaObjetos = this.productoService.obtenerProductos();
+    this.listaObjetos = this.productoService.obtenerCreados();
   }
 
   GuardarProducto(producto: Producto) {
-  this.productoService.GuardarDato(producto);
-  this.listaObjetos = [...this.productoService.obtenerProductos()];
+  this.productoService.guardarProductoNuevo(producto);
+  this.listaObjetos = [...this.productoService.obtenerCreados()];
 }
   }
 
