@@ -6,37 +6,37 @@
 
     <h4 class="nombreAplicacion">{{ nombreAplicacion }}</h4>
 
-    <form>
+    <form [formGroup]="formulario" (ngSubmit)="crearNuevoProducto()">
       <div class="campo">
         <label for="input" class="text">Id:</label>
-        <input type="text" [(ngModel)]="id" placeholder="Id......" name="input" class="input">
+        <input type="text" formControlName="id" placeholder="Id......" name="input" class="input">
       </div>
 
       <div class="campo">
         <label for="input" class="text">Nombre:</label>
-        <input type="text" [(ngModel)]="title" placeholder="Nombre......" name="input" class="input">
+        <input type="text" formControlName="title" placeholder="Nombre......" name="input" class="input">
       </div>
 
       <div class="campo">
         <label for="input" class="text">Precio:</label>
-        <input type="text" [(ngModel)]="price" placeholder="Precio......" name="input" class="input">
+        <input type="text" formControlName="price" placeholder="Precio......" name="input" class="input">
       </div>
 
       <div class="campo">
         <label for="input" class="text">Descripcion:</label>
-        <input type="text" [(ngModel)]="description" placeholder="Descripcion......" name="input" class="input">
+        <input type="text" formControlName="description" placeholder="Descripcion......" name="input" class="input">
       </div>
 
       <div class="campo">
         <label for="input" class="text">Categoria:</label>
-        <input type="text" [(ngModel)]="category" placeholder="Categoria......" name="input" class="input">
+        <input type="text" formControlName="category" placeholder="Categoria......" name="input" class="input">
       </div>
 
       <div class="campo">
         <label for="input" class="text">Img:</label>
-        <input type="text" [(ngModel)]="image" placeholder="Imagen...." name="input" class="input">
+        <input type="text" formControlName="image" placeholder="Imagen...." name="input" class="input">
       </div>
 
-      <ion-button (click)="crearNuevoProducto()" class="botonSubmit" color="light" fill="solid" expand="block">Crear</ion-button>
+      <ion-button type="submit" class="botonSubmit" color="light" fill="solid" expand="block">Crear</ion-button>
     </form>
   </div>

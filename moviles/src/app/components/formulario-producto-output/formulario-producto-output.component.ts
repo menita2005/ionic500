@@ -1,6 +1,6 @@
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, inject, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonLabel, IonItem, IonList, IonAvatar } from '@ionic/angular/standalone';
 import { Producto } from 'src/data/interfaces/producto.model';
 import { ProductoService } from 'src/data/service/producto-service';
@@ -10,11 +10,12 @@ import { ProductoService } from 'src/data/service/producto-service';
   templateUrl: './formulario-producto-output.component.html',
   styleUrls: ['./formulario-producto-output.component.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonLabel, IonItem, IonList, IonAvatar]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonLabel, IonItem, IonList, IonAvatar, ReactiveFormsModule]
 })
 export class FormularioProductoOutputComponent implements OnInit {
 
   productoService = inject(ProductoService)
+  private fb = Inject(FormBuilder)
 
   @Output() producto = new EventEmitter<Producto>
 
@@ -30,13 +31,30 @@ export class FormularioProductoOutputComponent implements OnInit {
 
   prod: Producto;
 
+  formulario: FormGroup;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.crearFormulario();
+  }
+
+  crearFormulario(){
+    this.formulario = this.fb.group({
+      id: ['', [Validators.required]],
+      title: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      category: ['', [Validators.required]],
+      image: ['', [Validators.required]]
+    })
+  }
 
   crearNuevoProducto() {
 
-    this.prod = {
+    if(this.formulario.valid){
+
+      this.prod = {
       id: this.id,
       title: this.title,
       price: this.price,
@@ -46,6 +64,12 @@ export class FormularioProductoOutputComponent implements OnInit {
     };
 
     this.producto.emit(this.prod);
+
+    } else {
+      alert("Datos incorrectos")
+    }
+
+
   }
 
 }
