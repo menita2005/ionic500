@@ -29,6 +29,7 @@ export class CrearProductoPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.producto = this.productoService.obtenerDato();
   }
 
 }

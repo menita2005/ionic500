@@ -15,7 +15,7 @@ import { ProductoService } from 'src/data/service/producto-service';
 export class FormularioProductoOutputComponent implements OnInit {
 
   productoService = inject(ProductoService)
-  private fb = Inject(FormBuilder)
+  private fb = inject(FormBuilder)
 
   @Output() producto = new EventEmitter<Producto>
 
@@ -39,31 +39,24 @@ export class FormularioProductoOutputComponent implements OnInit {
     this.crearFormulario();
   }
 
-  crearFormulario(){
+  crearFormulario() {
     this.formulario = this.fb.group({
-      id: ['', [Validators.required]],
-      title: ['', [Validators.required]],
-      price: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      category: ['', [Validators.required]],
-      image: ['', [Validators.required]]
-    })
+      id: ['', [Validators.required, Validators.pattern('^[1-9][0-9]*$'), Validators.max(100000000)]],
+      title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(45), Validators.pattern('^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]+$')]],
+      price: ['', [Validators.required, Validators.pattern('^[1-9][0-9]*$'), Validators.max(100000000)]],
+      description: ['', [Validators.maxLength(300)]],
+      category: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(45), Validators.pattern('^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]+$')]],
+      image: ['', [Validators.pattern('https?://.+')]],
+    });
   }
 
   crearNuevoProducto() {
 
-    if(this.formulario.valid){
+    if (this.formulario.valid) {
 
-      this.prod = {
-      id: this.id,
-      title: this.title,
-      price: this.price,
-      description: this.description,
-      category: this.category,
-      image: this.image,
-    };
+      this.prod = this.formulario.value;
 
-    this.producto.emit(this.prod);
+      this.producto.emit(this.prod);
 
     } else {
       alert("Datos incorrectos")
