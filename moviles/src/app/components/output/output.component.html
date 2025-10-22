@@ -1,33 +1,36 @@
-<form>
-      <div class="campo">
-        <label for="input" class="text">Id:</label>
-        <input type="number" [(ngModel)]="id" placeholder="Ingresa el id del producto......" name="id" class="input">
-      </div>
+<form [formGroup]="formularioProducto">
+  <div class="campo">
+    <label for="id" class="text">Id:</label>
+    <input type="number" formControlName="id" placeholder="id " class="input">
+  </div>
 
-      <div class="campo">
-        <label for="input" class="text">Nombre:</label>
-        <input type="text" [(ngModel)]="title" placeholder="Ingresa el nombre del producto......" name="title" class="input">
-      </div>
+  <div class="campo">
+    <label for="title" class="text">Nombre:</label>
+    <input type="text" formControlName="title" placeholder="nombre" class="input">
+  </div>
 
-      <div class="campo">
-        <label for="input" class="text">Precio:</label>
-        <input type="number" [(ngModel)]="price" placeholder="Ingresa el precio del producto......" name="price" class="input">
-      </div>
+  <div class="campo">
+    <label for="price" class="text">Precio:</label>
+    <input type="number" formControlName="price" placeholder="precio" class="input">
+  </div>
 
-      <div class="campo">
-        <label for="input" class="text">Descripcion:</label>
-        <input type="text" [(ngModel)]="description" placeholder="Ingresa una descripcion del producto......" name="description" class="input">
-      </div>
+  <div class="campo">
+    <label for="description" class="text">Descripción:</label>
+    <input type="text" formControlName="description" placeholder="descripción" class="input">
+  </div>
 
-      <div class="campo">
-        <label for="input" class="text">Categoria:</label>
-        <input type="text" [(ngModel)]="category" placeholder="Ingresa la categoria del producto......" name="category" class="input">
-      </div>
+  <div class="campo">
+    <label for="category" class="text">Categoría:</label>
+    <input type="text" formControlName="category" placeholder="categoría" class="input">
+  </div>
 
-      <div class="campo">
-        <label for="input" class="text">Url de la imagen:</label>
-        <input type="text" [(ngModel)]="image" placeholder="Ingresa la url de la imagen......" name="image" class="input">
-      </div>
+  <div class="campo">
+    <label for="image" class="text">URL de la imagen:</label>
+    <input type="text" formControlName="image" placeholder="URL" class="input">
+  </div>
+    <label class="text" *ngIf="this.formularioProducto.invalid" color="light" fill="solid">Error en formulario</label>
 
-      <ion-button (click)="crear()" class="botonSubmit" color="light" fill="solid" expand="block">Crear</ion-button>
-    </form>
+  <ion-button (click)="crear()" [disabled]="formularioProducto.invalid" class="botonSubmit" color="light" fill="solid" expand="block">
+    Crear
+  </ion-button>
+</form>

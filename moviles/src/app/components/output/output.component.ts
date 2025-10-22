@@ -1,8 +1,7 @@
-import { Component, EventEmitter, OnInit, Output, output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import {IonContent, IonHeader,IonTitle,IonToolbar,IonButton,IonLabel,IonItem,IonList,IonAvatar } from '@ionic/angular/standalone';
-import { ListaProductosComponentComponent } from '../lista-productos-component/lista-productos-component.component';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IonButton } from '@ionic/angular/standalone';
 import { Producto } from 'src/app/data/interface/producto.model';
 
 @Component({
@@ -10,35 +9,39 @@ import { Producto } from 'src/app/data/interface/producto.model';
   standalone: true,
   templateUrl: './output.component.html',
   styleUrls: ['./output.component.scss'],
-  imports: [CommonModule, FormsModule,IonContent, IonHeader,IonTitle,IonToolbar,IonButton,IonLabel,IonItem,IonList,IonAvatar,ListaProductosComponentComponent],
+  imports: [CommonModule, ReactiveFormsModule, IonButton],
 })
-export class OutputComponent  implements OnInit {
+export class OutputComponent implements OnInit {
+  @Output() producto = new EventEmitter<Producto>();
 
-  @Output() producto = new EventEmitter<Producto>()
-  id:number
-  title:String
-  price:number
-  description:string
-  category:string
-  image:string
+  formularioProducto: FormGroup;
 
-  nuevoProducto: Producto ;
+  constructor(private fb: FormBuilder) {}
 
-crear() {
-  this.nuevoProducto = {
-    id: Number(this.id),
-    title: this.title,
-    price: Number(this.price),
-    description: this.description,
-    category: this.category,
-    image: this.image
-  };  
-  console.log("Creando producto:", this.nuevoProducto);
-  this.producto.emit(this.nuevoProducto);
+  ngOnInit() {
+    this.crearFormulario();
+  }
+
+  crearFormulario() {
+  this.formularioProducto = this.fb.group({
+    id: [null, [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(1)]],
+    title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
+    price: [0, [Validators.required, Validators.min(1), Validators.max(10000)]],
+    description: ['', [Validators.required, Validators.minLength(20), Validators.maxLength(1000)]],
+    category: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z]+$')]],
+    image: ['', [Validators.maxLength(300), Validators.pattern('(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))')]]
+  });
 }
 
-  constructor() { }
 
-  ngOnInit() {}
-
+  crear() {
+if (this.formularioProducto.valid) {
+      const nuevoProducto: Producto = this.formularioProducto.value;
+      console.log('Producto creado:', nuevoProducto);
+      this.producto.emit(nuevoProducto);
+      this.formularioProducto.reset();
+    } else {
+      console.warn('Formulario inválido, revisa los campos');
+    }
+  }
 }
