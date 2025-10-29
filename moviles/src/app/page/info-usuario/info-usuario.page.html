@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>info-usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">info-usuario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container-main">
+
+    <div class="perfil-container">
+      <img src="assets/perfil/perritos.jpg" alt="Perfil" class="perfil" />
+    </div>
+
+    <form>
+      <div class="campo">
+        <label for="input" class="text">Nombre:</label>
+        <input type="text" placeholder={{nombre}} name="input" class="input" readonly="true">
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Apellido:</label>
+        <input type="text" placeholder={{apellido}} name="input" class="input" readonly="true">
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Ciudad:</label>
+        <input type="text" placeholder={{ciudad}} name="input" class="input" readonly="true">
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Fecha Nacimiento:</label>
+        <input type="text" placeholder={{fechaNacimiento}} name="input" class="input" readonly="true">
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Celular:</label>
+        <input type="text" placeholder={{celular}} name="input" class="input" readonly="true">
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Correo electronico:</label>
+        <input type="text" placeholder={{correoElectronico}} name="input" class="input" readonly="true">
+      </div>
+    </form>
+  </div>
+</ion-content>

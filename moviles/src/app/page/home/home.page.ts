@@ -17,21 +17,23 @@ import { ProductoService } from 'src/data/service/producto-service';
 })
 export class HomePage implements OnInit {
 
-  producto: Producto[] = []
-
-  private activatedRoute = inject(ActivatedRoute)
-  productoService = inject(ProductoService)
-
   constructor() { }
 
+  logo: string = "https://img.freepik.com/vector-premium/diseno-logotipo-vectorial-iconos-entrega-concepto-creativo-unico-premium-vector_561067-1562.jpg?semt=ais_hybrid&w=740&q=80";
+  nombreAplicacion: string = "Delivery Express";
+
+  usuario: string;
+  direccion: string;
+  pais: string;
+  ciudad: string;
+  idioma: string;
+  moneda: string;
+
   ngOnInit() {
-     let id = this.activatedRoute.snapshot.paramMap.get("id")
-     console.log(id)
   }
 
-  registrar(producto: Producto){
-    alert("Producto creado con exito")
-    this.productoService.guardarDato(producto)
+  confirmarCompra() {
+    console.log(`Usuario: ${this.usuario}, Dirección: ${this.direccion}, País: ${this.pais}, Ciudad: ${this.ciudad}, Idioma: ${this.idioma}, Moneda: ${this.moneda}`);
   }
 
 }
