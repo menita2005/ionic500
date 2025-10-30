@@ -21,9 +21,35 @@ export class CrearProductoPage implements OnInit {
 
   productoService = inject(ProductoService)
 
-  registrar(producto: Producto){
+  registrar(producto: Producto) {
     alert("Producto creado con exito")
     this.productoService.guardarDato(producto)
+
+    this.crearProductoAPI(producto)
+  }
+
+  crearProductoAPI(prod: Producto) {
+
+    this.productoService.postAPI(prod).subscribe({
+      next: (data) => {
+        console.log("producto creado con exito en la API", data)
+      },
+      error: (err) => {
+        console.log("ERROR", err)
+      }
+    })
+
+  }
+
+  traerProductoAPI(){
+    this.productoService.getAPI().subscribe({
+      next: (data) => {
+        console.log(data)
+      },
+      error: (err) => {
+        console.log("ERROR", err)
+      }
+    })
   }
 
   constructor() { }
@@ -31,5 +57,6 @@ export class CrearProductoPage implements OnInit {
   ngOnInit() {
     this.producto = this.productoService.obtenerDato();
   }
+
 
 }

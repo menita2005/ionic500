@@ -5,6 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 import { Producto } from 'src/data/interfaces/producto.model';
 import { ProductoService } from 'src/data/service/producto-service';
 import { ListaProductosInputComponent } from 'src/app/components/lista-productos-input/lista-productos-input.component';
+import { raceWith } from 'rxjs';
 
 @Component({
   selector: 'app-maestros-productos',
@@ -27,6 +28,10 @@ export class MaestrosProductosPage implements OnInit {
       description: 'Un smartphone de alta gama con pantalla AMOLED de 6.5 pulgadas.',
       category: 'Electronics',
       image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
+      rating: {
+        count: 0,
+        rate: 0
+      }
     },
     {
       id: 2,
@@ -35,6 +40,10 @@ export class MaestrosProductosPage implements OnInit {
       description: 'Laptop profesional con procesador Intel Core i7 y 16 GB de RAM.',
       category: 'Computers',
       image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
+      rating: {
+        count: 0,
+        rate: 0
+      }
     },
     {
       id: 3,
@@ -43,6 +52,10 @@ export class MaestrosProductosPage implements OnInit {
       description: 'Auriculares inalámbricos con cancelación de ruido y 20 horas de batería.',
       category: 'Accessories',
       image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
+      rating: {
+        count: 0,
+        rate: 0
+      }
     }
   ];
 

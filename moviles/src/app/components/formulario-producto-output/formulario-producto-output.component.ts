@@ -47,14 +47,38 @@ export class FormularioProductoOutputComponent implements OnInit {
       description: ['', [Validators.maxLength(300)]],
       category: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(45), Validators.pattern('^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]+$')]],
       image: ['', [Validators.pattern('https?://.+')]],
+      rate: [''],
+      count: [''],
     });
   }
+
+  /*
+  title?: string,
+      price: number,
+      description: string,
+      category: string,
+      image: string,
+      rating: Rating
+  */
+  //rate: number,
+  //count: number
 
   crearNuevoProducto() {
 
     if (this.formulario.valid) {
 
-      this.prod = this.formulario.value;
+      this.prod = {
+        id: this.formulario.get('id').value,
+        title: this.formulario.get('title').value,
+        price: this.formulario.get('price').value,
+        description: this.formulario.get('description').value,
+        category: this.formulario.get('category').value,
+        image: this.formulario.get('image').value,
+        rating: {
+          count: this.formulario.get('count').value,
+          rate: this.formulario.get('rate').value,
+        }
+      }
 
       this.producto.emit(this.prod);
 

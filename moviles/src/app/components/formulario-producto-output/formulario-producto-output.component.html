@@ -43,6 +43,18 @@
         <label class="error-label" *ngIf="this.formulario.get('image')?.touched && this.formulario.get('image')?.invalid">URL de la imagen no valida</label>
       </div>
 
+      <div class="campo">
+        <label for="input" class="text">Rate:</label>
+        <input type="text" formControlName="rate" placeholder="Imagen...." name="input" class="input">
+        <label class="error-label" *ngIf="this.formulario.get('rate')?.touched && this.formulario.get('image')?.invalid">URL de la imagen no valida</label>
+      </div>
+
+      <div class="campo">
+        <label for="input" class="text">Count:</label>
+        <input type="text" formControlName="count" placeholder="Imagen...." name="input" class="input">
+        <label class="error-label" *ngIf="this.formulario.get('count')?.touched && this.formulario.get('image')?.invalid">URL de la imagen no valida</label>
+      </div>
+
       <ion-button type="submit" class="botonSubmit" color="light" fill="solid" expand="block">Crear</ion-button>
     </form>
   </div>
