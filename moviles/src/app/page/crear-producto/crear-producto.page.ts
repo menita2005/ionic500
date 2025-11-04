@@ -41,6 +41,7 @@ export class CrearProductoPage implements OnInit {
 
   }
 
+  /*
   traerProductoAPI(){
     this.productoService.getAPI().subscribe({
       next: (data) => {
@@ -51,6 +52,7 @@ export class CrearProductoPage implements OnInit {
       }
     })
   }
+  */
 
   constructor() { }
 

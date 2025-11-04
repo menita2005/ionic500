@@ -19,6 +19,7 @@ export class MaestrosProductosPage implements OnInit {
   productoService = inject(ProductoService)
 
   listaSinProductos: Producto[] = [];
+  listaConProductosAPI: Producto[] = []
 
   listaConProductos: Producto[] = [
     {
@@ -29,8 +30,8 @@ export class MaestrosProductosPage implements OnInit {
       category: 'Electronics',
       image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
       rating: {
-        count: 0,
-        rate: 0
+        rate: 40,
+        count: 120
       }
     },
     {
@@ -41,8 +42,8 @@ export class MaestrosProductosPage implements OnInit {
       category: 'Computers',
       image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
       rating: {
-        count: 0,
-        rate: 0
+        rate: 25,
+        count: 3
       }
     },
     {
@@ -53,8 +54,8 @@ export class MaestrosProductosPage implements OnInit {
       category: 'Accessories',
       image: 'https://ethic.es/wp-content/uploads/2023/03/imagen.jpg',
       rating: {
-        count: 0,
-        rate: 0
+        rate: 50,
+        count: 30
       }
     }
   ];
@@ -62,7 +63,19 @@ export class MaestrosProductosPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.traerProductoAPI();
     this.listaSinProductos = this.productoService.obtenerDato();
+  }
+
+  traerProductoAPI() {
+    this.productoService.getAPI().subscribe({
+      next: (data) => {
+        this.listaConProductosAPI = data
+      },
+      error: (err) => {
+        console.log("ERROR", err)
+      }
+    })
   }
 
 }
