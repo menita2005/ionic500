@@ -32,6 +32,7 @@ export class CrearProductoPage implements OnInit {
 
     this.productoService.postAPI(prod).subscribe({
       next: (data) => {
+        data.rating = prod.rating; 
         console.log("producto creado con exito en la API", data)
       },
       error: (err) => {

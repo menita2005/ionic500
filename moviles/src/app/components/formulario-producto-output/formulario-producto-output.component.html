@@ -45,14 +45,14 @@
 
       <div class="campo">
         <label for="input" class="text">Promedio de la reseña:</label>
-        <input type="text" formControlName="rate" placeholder="...." name="input" class="input">
+        <input type="text" formControlName="rate" placeholder="Prom. Reseña...." name="input" class="input">
         <label class="error-label" *ngIf="this.formulario.get('rate')?.touched && this.formulario.get('rate')?.invalid">Reseñas no valido</label>
       </div>
 
       <div class="campo">
         <label for="input" class="text">Cantidad de reseñas:</label>
-        <input type="text" formControlName="count" placeholder="...." name="input" class="input">
-        <label class="error-label" *ngIf="this.formulario.get('count')?.touched && this.formulario.get('count')?.invalid">No valido</label>
+        <input type="text" formControlName="count" placeholder="Cantidad reseñas...." name="input" class="input">
+        <label class="error-label" *ngIf="this.formulario.get('count')?.touched && this.formulario.get('count')?.invalid">Cantidad reseñas no valida</label>
       </div>
 
       <ion-button type="submit" class="botonSubmit" color="light" fill="solid" expand="block">Crear</ion-button>

@@ -1,104 +1,161 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center;
+  gap: 18px;
   padding: 20px;
 }
 
 .card {
-  width: 280px;
+  width: 230px;
+  min-height: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   background-color: #fff;
-  font-family: 'Arial', sans-serif;
-  transition: transform 0.2s ease;
+  font-family: 'Inter', 'Arial', sans-serif;
+  transition: all 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 160px;
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-image {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-image {
+  transform: scale(1.05);
 }
 
 .card-content {
-  padding: 15px;
+  flex-grow: 1;
+  padding: 12px 14px;
+  text-align: center;
 }
 
 .card-title {
-  font-size: 1.25rem;
-  margin: 0 0 10px 0;
-  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #222;
+  height: 40px;
+  overflow: hidden;
 }
 
 .card-description {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: #666;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
 }
 
 .card-category {
   display: inline-block;
-  background-color: #f0f0f0;
-  color: #555;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  margin-bottom: 12px;
+  background-color: #eef3ff;
+  color: #3a6ff7;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  margin-bottom: 10px;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.star-icon {
+  color: #FFD700;
+  font-size: 1.1rem;
+}
+
+.rating-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.review-count {
+  font-size: 0.8rem;
+  color: #888;
 }
 
 .card-price {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #1e90ff;
+  margin-bottom: 12px;
+}
+
+.card-actions {
+  width: 100%;
+  padding: 0 12px 12px 12px;
+  margin-top: auto; 
+}
+
+.btn-add-cart,
+.btn-remove-cart {
+  width: 100%;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .btn-add-cart {
-  width: 100%;
-  padding: 10px 15px;
   background: linear-gradient(90deg, #1e90ff, #00bfff);
   color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 3px 6px rgba(0, 123, 255, 0.25);
 }
 
-.btn-add-cart-disabled {
-  width: 100%;
-  padding: 10px 15px;
-  background: transparent; 
-  color: rgba(30, 144, 255, 0.6); 
-  border: 2px solid rgba(30, 144, 255, 0.4); 
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: not-allowed; 
-  transition: all 0.3s ease;
-  box-shadow: none; 
-  opacity: 1; 
-  text-align: center;
+.btn-add-cart:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
 }
 
 .btn-remove-cart {
-  width: 100%;
-  padding: 10px 15px;
-  background: linear-gradient(90deg, #ce1029e1, #ff0000);
+  background: linear-gradient(90deg, #ff4b2b, #ff0000);
   color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 3px 6px rgba(255, 0, 0, 0.2);
+}
+
+.btn-remove-cart:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
 }

@@ -47,8 +47,8 @@ export class FormularioProductoOutputComponent implements OnInit {
       description: ['', [Validators.maxLength(300)]],
       category: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(45), Validators.pattern('^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]+$')]],
       image: ['', [Validators.pattern('https?://.+')]],
-      rate: ['', [Validators.required, Validators.pattern('^[1-9][0-9]*$'), Validators.max(10)]],
-      count: ['', [Validators.required, Validators.pattern('^[1-9][0-9]*$'), Validators.max(10)]],
+      rate: ['', [Validators.pattern('^[0-9][0-9]*$'), Validators.max(50)]],
+      count: ['', [Validators.required, Validators.pattern('^[1-9][0-9]*$'), Validators.max(10000)]],
     });
   }
 
