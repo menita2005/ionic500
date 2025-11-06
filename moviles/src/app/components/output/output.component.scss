@@ -2,7 +2,7 @@ form {
   max-width: 500px;
   margin: 2rem auto;
   padding: 2rem;
-  background: #1e1e1e; /* Fondo oscuro para contraste */
+  background: #1e1e1e;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
@@ -39,6 +39,30 @@ form {
   outline: none;
   box-shadow: 0 0 6px rgba(78,158,255,0.6);
 }
+
+
+.error {
+  color: #ee7171;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-shadow: 0 0 2px rgb(163, 163, 163); 
+  margin-top: 0.3rem;
+  padding-left: 0.3rem;
+  animation: parpadeoError 0.2s ease-in-out;
+}
+
+
+.input.ng-invalid.ng-touched {
+  border-color: #e788888f;
+  box-shadow: 0 0 6px #dd4b4b75, 0 0 10px white;
+}
+
+
+@keyframes parpadeoError {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
 
 .botonSubmit {
   margin-top: 1rem;

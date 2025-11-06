@@ -40,36 +40,23 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.listaObjetos = this.productoService.obtenerCreados();
+    this.traerProducto();
     
   }
-  productosQuemados: Producto[] = [
-    {
-      id: 1,
-      title: 'Laptop Lenovo ThinkPad',
-      price: 3200,
-      description: 'Laptop ideal para trabajo y estudio',
-      category: 'Tecnología',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Lenovo_ThinkPad_T14s.jpg'
-    },
-    {
-      id: 2,
-      title: 'Teléfono Samsung Galaxy',
-      price: 2500,
-      description: 'Pantalla AMOLED y cámara profesional',
-      category: 'Electrónica',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Samsung_Galaxy_S21_Ultra.png'
-    },
-    {
-      id: 3,
-      title: 'Auriculares Sony WH-1000XM5',
-      price: 1800,
-      description: 'Cancelación de ruido líder en el mercado',
-      category: 'Audio',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Sony_WH-1000XM5.jpg'
-    }
-  ];
+  productosQuemados: Producto[] = [];
 
- 
+  traerProducto(){
+    this.productoService.getpost().subscribe({
+      next:(data) => {
+        this.productosQuemados = data;
+        console.log(data)
+      },
+      error: (err) => {
+        console.log("ERROR",err)
+      }
+      
+    })
+  }
   agregarAlCarrito(producto: Producto) {
   this.productoService.agregarAlCarrito(producto);
 }

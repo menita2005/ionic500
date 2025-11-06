@@ -24,10 +24,22 @@ export class ProductosPage implements OnInit {
     
     this.listaObjetos = this.productoService.obtenerCreados();
   }
+  crearPost(producto){
+    this.productoService.crearpost(producto).subscribe({
+      next: (data) => {
+        console.log("producto creado",data)
+        alert("Producto creado")
+      },
+      error: (err) => {
+        console.log("ERROR",err)
+      }
+    })
+  }
 
   GuardarProducto(producto: Producto) {
   this.productoService.guardarProductoNuevo(producto);
   this.listaObjetos = [...this.productoService.obtenerCreados()];
+  this.crearPost(producto)
 }
   }
 

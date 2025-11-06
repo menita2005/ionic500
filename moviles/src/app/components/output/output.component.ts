@@ -23,25 +23,31 @@ export class OutputComponent implements OnInit {
   }
 
   crearFormulario() {
-  this.formularioProducto = this.fb.group({
-    id: [null, [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(1)]],
-    title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
-    price: [0, [Validators.required, Validators.min(1), Validators.max(10000)]],
-    description: ['', [Validators.required, Validators.minLength(20), Validators.maxLength(1000)]],
-    category: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z]+$')]],
-    image: ['', [Validators.maxLength(300), Validators.pattern('(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))')]]
-  });
-}
-
+    this.formularioProducto = this.fb.group({
+      id: [null, [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(1)]],
+      title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
+      price: [0, [Validators.required, Validators.min(1), Validators.max(10000)]],
+      description: ['', [Validators.required, Validators.minLength(20), Validators.maxLength(1000)]],
+      category: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z]+$')]],
+      image: ['']
+    });
+  }
 
   crear() {
-if (this.formularioProducto.valid) {
+    if (this.formularioProducto.valid) {
       const nuevoProducto: Producto = this.formularioProducto.value;
       console.log('Producto creado:', nuevoProducto);
       this.producto.emit(nuevoProducto);
       this.formularioProducto.reset();
     } else {
       console.warn('Formulario inválido, revisa los campos');
+      this.formularioProducto.markAllAsTouched(); 0
     }
+  }
+
+  
+  campoInvalido(campo: string): boolean {
+    const control = this.formularioProducto.get(campo);
+    return !!(control && control.invalid && (control.dirty || control.touched));
   }
 }

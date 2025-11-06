@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Producto } from 'src/app/data/interface/producto.model';
 
 @Injectable({
@@ -8,8 +10,16 @@ export class ProductoService {
 
   private listaCreados: Producto[] = [];
   private carrito: Producto[] = [];
-
-  // 🔹 Productos creados
+  private http = inject(HttpClient)
+  apiUrl = "https://fakestoreapi.com/products"
+  
+  getpost(): Observable<Producto[]>{
+    return this.http.get<Producto[]>(this.apiUrl);
+  }
+  crearpost(post:Producto):Observable<any>{
+    return this.http.post<Producto[]>(this.apiUrl, post);
+  }
+  //Productos creados
   obtenerCreados() {
     return this.listaCreados;
   }
@@ -18,7 +28,7 @@ export class ProductoService {
     this.listaCreados.push(producto);
   }
 
-  // 🔹 Carrito
+  //Carrito
   obtenerCarrito() {
     return this.carrito;
   }
