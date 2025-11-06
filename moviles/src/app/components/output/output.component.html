@@ -54,12 +54,11 @@
     </small>
   </div>
    <div class="campo">
-    <label for="category" class="text">Rating count:</label>
-    <input type="text" formControlName="Rating" placeholder="rating" class="input">
-    <small class="error" *ngIf="campoInvalido('category')">
-      <span *ngIf="formularioProducto.get('category')?.hasError('required')">La categoría es obligatoria.</span>
-      <span *ngIf="formularioProducto.get('category')?.hasError('minlength')">Mínimo 3 caracteres.</span>
-      <span *ngIf="formularioProducto.get('category')?.hasError('pattern')">Solo se permiten letras.</span>
+    <label for="rate" class="text">Rating count:</label>
+    <input type="number" formControlName="rate" placeholder="rate" class="input">
+    <small class="error" *ngIf="campoInvalido('rate')">
+      <span *ngIf="formularioProducto.get('rate')?.hasError('required')">La calificacion es obligatoria.</span>
+      <span *ngIf="formularioProducto.get('rate')?.hasError('pattern')">Solo se permiten numeros.</span>
     </small>
   </div>
   
