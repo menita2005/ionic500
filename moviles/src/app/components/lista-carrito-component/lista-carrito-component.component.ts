@@ -24,8 +24,8 @@ export class ListaCarritoComponentComponent implements OnInit {
     this.carrito = this.productoService.obtenerCarrito();
   }
 
-  eliminarDelCarrito(id: number) {
-    this.productoService.eliminarDelCarrito(id);
+  eliminarDelCarrito(index) {
+    this.productoService.eliminarDelCarrito(index);
     this.cargarCarrito(); 
   }
 }

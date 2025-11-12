@@ -37,7 +37,7 @@ export class ProductoService {
     this.carrito.push(producto);
   }
 
-  eliminarDelCarrito(id: number) {
-    this.carrito = this.carrito.filter(p => p.id !== id);
+  eliminarDelCarrito(index) {
+    this.carrito.splice(index, 1);
   }
 }

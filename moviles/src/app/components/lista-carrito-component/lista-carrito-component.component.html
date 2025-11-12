@@ -3,19 +3,19 @@
 </div>
 
 
-  <div class="cart-list" *ngFor="let producto of carrito">
-    <div class="product-exposition">
+  <div class="product-exposition" >
+    <div class="product-card" *ngFor="let producto of carrito; let i = index">
+    <img [src]="producto.image" alt="{{ producto.title }}" class="product-image" />
 
-    <img [src]="producto.image" alt="{{producto.title}}" class="product-image" />
     <div class="product-details">
       <h2 class="product-title">{{ producto.title }}</h2>
       <p class="product-category">{{ producto.category }}</p>
       <p class="product-description">{{ producto.description }}</p>
       <p class="product-price">\${{ producto.price }}</p>
-
-       <button (click)="eliminarDelCarrito(producto.id)">Eliminar</button>
     </div>
+
+    <button class="remove-button" (click)="eliminarDelCarrito(i)">Eliminar</button>
+  </div>
   
 </div>
 
-  </div>
